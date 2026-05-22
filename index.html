@@ -142,7 +142,7 @@
             color: var(--dark-color);
         }
 
-        /* ตกแต่งแท็กสีพิเศษสำหรับกะเพราหมูกรอบและสีม่วง */
+        /* ตกแต่งแท็กสีพิเศษสำหรับข้อมูลต่างๆ */
         .badge {
             display: inline-block;
             padding: 3px 12px;
@@ -159,6 +159,16 @@
         .badge-color {
             background-color: #E0DBFF;
             color: #6C5CE7;
+        }
+
+        .badge-subject {
+            background-color: #E3F2FD;
+            color: #1976D2;
+        }
+
+        .badge-friend {
+            background-color: #FFDFD3;
+            color: #E15F41;
         }
     </style>
 </head>
@@ -205,6 +215,30 @@
                     <span class="label">สีที่ชอบ</span>
                     <span class="value badge badge-color">
                         <i class="fa-solid fa-heart" style="margin-right: 4px;"></i> สีม่วง
+                    </span>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon-box">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+                <div class="info-content">
+                    <span class="label">วิชาที่ชอบ</span>
+                    <span class="value badge badge-subject">
+                        <i class="fa-solid fa-flask" style="margin-right: 4px;"></i> วิทยาศาสตร์
+                    </span>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon-box">
+                    <i class="fa-solid fa-user-group"></i>
+                </div>
+                <div class="info-content">
+                    <span class="label">เพื่อนสนิท</span>
+                    <span class="value badge badge-friend">
+                        <i class="fa-solid fa-face-smile-wink" style="margin-right: 4px;"></i> แต๊ก่า
                     </span>
                 </div>
             </div>
