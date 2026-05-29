@@ -1,250 +1,387 @@
+<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติส่วนตัว - ณพัชชาภรณ์ ชัยยศ</title>
+    <title>Student Profile - ณพัชชาภรณ์ ชัยยศ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-color: #6C5CE7; /* สีม่วงหลักสไตล์โมเดิร์น */
-            --primary-light: #A29BFE;
-            --dark-color: #2D3436;
-            --light-bg: #F9F9FB;
-            --card-bg: #FFFFFF;
+            --primary-blue: #0284c7;
+            --primary-gradient: linear-gradient(135deg, #0284c7 0%, #7c3aed 100%);
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Prompt', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--dark-color);
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
 
-        .profile-container {
-            background: var(--card-bg);
+        h1, h2, h3, .motto-box {
+            font-family: 'Prompt', sans-serif;
+        }
+
+        /* ตั้งค่าขนาดตู้คอนเทนเนอร์ให้เหมาะกับสัดส่วน A4 */
+        .a4-profile-card {
+            background-color: var(--card-bg);
             width: 100%;
-            max-width: 450px;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+            max-width: 210mm; /* ความกว้างมาตรฐาน A4 */
+            min-height: 297mm; /* ความสูงมาตรฐาน A4 */
+            box-shadow: var(--shadow-md);
+            border-radius: 16px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
         }
 
-        .profile-container:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Header ส่วนหัวโทนสีม่วง ไล่เฉดสี */
+        /* ส่วนหัวของการ์ดไล่เฉดสีฟ้า-ม่วง */
         .profile-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            padding: 40px 20px;
-            text-align: center;
+            background: var(--primary-gradient);
             color: white;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
             position: relative;
         }
 
-        .avatar-container {
-            width: 110px;
-            height: 110px;
-            background: white;
+        .avatar-box {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.4);
             border-radius: 50%;
-            margin: 0 auto 15px;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            backdrop-filter: blur(8px);
         }
 
-        .avatar-container i {
-            font-size: 3.5rem;
-            color: var(--primary-color);
+        .avatar-box svg {
+            width: 70px;
+            height: 70px;
+            fill: white;
         }
 
-        .profile-header h1 {
-            font-size: 1.6rem;
+        .header-info {
+            flex: 1;
+        }
+
+        .name-wrapper {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .student-name {
+            font-size: 28px;
             font-weight: 600;
-            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .student-nickname {
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 2px 14px;
+            border-radius: 9999px;
+            font-weight: 500;
+        }
+
+        .school-tag {
+            margin-top: 8px;
+            font-size: 16px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ส่วนคติประจำใจ */
+        .motto-container {
+            padding: 0 40px;
+            margin-top: -20px;
+            z-index: 10;
+        }
+
+        .motto-box {
+            background: white;
+            border-left: 5px solid var(--primary-blue);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary-blue);
+            text-align: center;
             letter-spacing: 0.5px;
         }
 
-        .profile-header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* Body รายละเอียดประวัติ */
+        /* โครงสร้างเนื้อหาหลัก */
         .profile-body {
-            padding: 30px 25px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            flex-grow: 1;
         }
 
-        .info-item {
-            display: flex;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #EEF2F5;
-        }
-
-        .info-item:last-child {
-            border-bottom: none;
-        }
-
-        .icon-box {
-            width: 45px;
-            height: 45px;
-            background-color: rgba(108, 92, 231, 0.1);
+        .section-block {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
             border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0fdf4;
+            position: relative;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin-right: 15px;
-            transition: all 0.3s ease;
+            gap: 8px;
         }
 
-        .info-item:hover .icon-box {
-            background-color: var(--primary-color);
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-blue);
         }
 
-        .info-item:hover .icon-box i {
-            color: white;
+        /* รายละเอียดข้อมูลภายในกลุ่ม */
+        .info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .icon-box i {
-            font-size: 1.2rem;
-            color: var(--primary-color);
+        .info-row {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            font-size: 15px;
         }
 
-        .info-content .label {
-            font-size: 0.85rem;
-            color: #888;
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .info-content .value {
-            font-size: 1.05rem;
+        .info-label {
+            color: var(--text-muted);
             font-weight: 500;
-            color: var(--dark-color);
         }
 
-        /* ตกแต่งแท็กสีพิเศษสำหรับข้อมูลต่างๆ */
-        .badge {
+        .info-value {
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        /* ตกแต่งเป้าหมายในอนาคตเป็นพิเศษ */
+        .dream-value {
+            color: #7c3aed;
+            font-weight: 600;
+            background: #f5f3ff;
+            padding: 2px 10px;
+            border-radius: 6px;
             display: inline-block;
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 0.95rem;
+        }
+
+        /* สไตล์ของ Tag / Pill ทักษะ */
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .skill-pill {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 14px;
             font-weight: 500;
+            border: 1px solid #bae6fd;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .badge-food {
-            background-color: #FFEAA7;
-            color: #D63031;
+        .skill-pill.secondary {
+            background-color: #f3e8ff;
+            color: #6b21a8;
+            border-color: #e9d5ff;
         }
 
-        .badge-color {
-            background-color: #E0DBFF;
-            color: #6C5CE7;
+        /* การตั้งค่าระบบการพิมพ์ (A4 Print Layout) */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+                margin: 0;
+            }
+            .a4-profile-card {
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                width: 210mm;
+                height: 297mm;
+            }
+            .profile-header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .motto-box {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                border: 1px solid var(--border-color) !important;
+            }
+            .skill-pill {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .dream-value {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
 
-        .badge-subject {
-            background-color: #E3F2FD;
-            color: #1976D2;
-        }
-
-        .badge-friend {
-            background-color: #FFDFD3;
-            color: #E15F41;
+        /* รองรับการแสดงผลหน้าจอมือถือ */
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .name-wrapper {
+                justify-content: center;
+            }
+            .school-tag {
+                justify-content: center;
+            }
+            .profile-body {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            .motto-container {
+                padding: 0 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="profile-container">
-        <div class="profile-header">
-            <div class="avatar-container">
-                <i class="fa-solid fa-user-astronaut"></i>
+    <div class="a4-profile-card">
+        
+        <header class="profile-header">
+            <div class="avatar-box">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12,2A10,10 0 0,0 2,12C2,16.58 5.08,20.44 9.29,21.54C9.11,21.05 9.04,20.53 9.05,20C9.05,18.4 9.82,17 11,16.18V14.71C10.1,14.4 9.34,13.73 8.87,12.87C8.16,12.7 7.62,12.07 7.62,11.31C7.62,10.74 7.96,10.26 8.44,10.05C8.32,9.1 8.5,7.21 9.87,5.84C11.24,4.47 13.08,4.5 13.84,4.56C15.15,4.72 16,5.77 16.29,7.12C16.8,7.3 17.19,7.77 17.19,8.34C17.19,9.03 16.71,9.6 16.08,9.75C16.03,10.64 15.65,12.11 14.62,13.06C14.23,13.79 13.56,14.36 12.75,14.67V16.14C13.97,16.94 14.76,18.37 14.76,20C14.76,20.56 14.68,21.11 14.5,21.62C18.81,20.64 22,16.7 22,12A10,10 0 0,0 12,2Z"/>
+                </svg>
             </div>
-            <h1>ณพัชชาภรณ์ ชัยยศ</h1>
-            <p>ชื่อเล่น: ซีซ่าร์</p>
+            <div class="header-info">
+                <div class="name-wrapper">
+                    <h1 class="student-name">ณพัชชาภรณ์ ชัยยศ</h1>
+                    <span class="student-nickname">ซีซ่าร์</span>
+                </div>
+                <div class="school-tag">
+                    <span>🏫 โรงเรียนจอมทอง</span>
+                    <span>|</span>
+                    <span>ชั้นมัธยมศึกษาปีที่ 3 (ม.3)</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="motto-container">
+            <div class="motto-box">
+                " ทำวันนี้ให้ดีที่สุด แล้วพรุ่งนี้จะดีเอง "
+            </div>
         </div>
 
-        <div class="profile-body">
+        <main class="profile-body">
             
-            <div class="info-item">
-                <div class="icon-box">
-                    <i class="fa-solid fa-cake-candles"></i>
+            <section class="section-block">
+                <h2 class="section-title">👤 ข้อมูลส่วนตัวทั่วไป</h2>
+                <div class="info-grid">
+                    <div class="info-row"><span class="info-label">วันเกิด</span><span class="info-value">09/09/2554</span></div>
+                    <div class="info-row"><span class="info-label">เพศ</span><span class="info-value">หญิง</span></div>
+                    <div class="info-row"><span class="info-label">กรุ๊ปเลือด</span><span class="info-value">AB</span></div>
+                    <div class="info-row"><span class="info-label">ราศี</span><span class="info-value">กันย์</span></div>
+                    <div class="info-row"><span class="info-label">ส่วนสูง</span><span class="info-value">165 ซม.</span></div>
+                    <div class="info-row"><span class="info-label">ภูมิลำเนา</span><span class="info-value">จังหวัดลำพูน</span></div>
                 </div>
-                <div class="info-content">
-                    <span class="label">วันเกิด</span>
-                    <span class="value">9 กันยายน 2554</span>
-                </div>
-            </div>
+            </section>
 
-            <div class="info-item">
-                <div class="icon-box">
-                    <i class="fa-solid fa-utensils"></i>
+            <section class="section-block">
+                <h2 class="section-title">📚 ด้านการเรียน & กิจกรรม</h2>
+                <div class="info-grid">
+                    <div class="info-row"><span class="info-label">วิชาที่ชอบ</span><span class="info-value" style="color:#0284c7; font-weight:500;">วิทยาศาสตร์</span></div>
+                    <div class="info-row"><span class="info-label">วิชาที่ยาก</span><span class="info-value">เทคโนโลยี</span></div>
+                    <div class="info-row"><span class="info-label">ชมรม/กิจกรรม</span><span class="info-value">ชมรมสวนพฤกษศาสตร์</span></div>
+                    <div class="info-row"><span class="info-label">เพื่อนสนิท</span><span class="info-value">แต๊ก่า</span></div>
                 </div>
-                <div class="info-content">
-                    <span class="label">อาหารที่ชอบ</span>
-                    <span class="value badge badge-food">
-                        <i class="fa-solid fa-fire-flame-curved" style="margin-right: 4px;"></i> กะเพราหมูกรอบ
-                    </span>
-                </div>
-            </div>
+            </section>
 
-            <div class="info-item">
-                <div class="icon-box">
-                    <i class="fa-solid fa-palette"></i>
+            <section class="section-block">
+                <h2 class="section-title">🎨 ไลฟ์สไตล์และความชอบ</h2>
+                <div class="info-grid">
+                    <div class="info-row"><span class="info-label">งานอดิเรก</span><span class="info-value">นอนฟังเพลง</span></div>
+                    <div class="info-row"><span class="info-label">เพลงที่ชอบ</span><span class="info-value">เพลงสากลแนวเศร้า (อังกฤษเศร้า)</span></div>
+                    <div class="info-row"><span class="info-label">ซีรีส์ / อนิเมะ</span><span class="info-value">ซีรีส์วาย</span></div>
+                    <div class="info-row"><span class="info-label">กีฬาที่เล่น</span><span class="info-value">ฟุตบอล (บอล)</span></div>
+                    <div class="info-row"><span class="info-label">อาหารโปรด</span><span class="info-value">กะเพราหมูกรอบไข่ดาว (ไข่แดงไม่สุก)</span></div>
+                    <div class="info-row"><span class="info-label">สีที่ชอบ</span><span class="info-value">ม่วง - ฟ้า</span></div>
                 </div>
-                <div class="info-content">
-                    <span class="label">สีที่ชอบ</span>
-                    <span class="value badge badge-color">
-                        <i class="fa-solid fa-heart" style="margin-right: 4px;"></i> สีม่วง
-                    </span>
-                </div>
-            </div>
+            </section>
 
-            <div class="info-item">
-                <div class="icon-box">
-                    <i class="fa-solid fa-atom"></i>
+            <section class="section-block">
+                <h2 class="section-title">🌟 เป้าหมาย & ทักษะความสามารถ</h2>
+                <div class="info-grid" style="margin-bottom: 20px;">
+                    <div class="info-row">
+                        <span class="info-label">อาชีพในฝัน</span>
+                        <span class="info-value"><span class="dream-value">⚕️ แพทย์</span></span>
+                    </div>
                 </div>
-                <div class="info-content">
-                    <span class="label">วิชาที่ชอบ</span>
-                    <span class="value badge badge-subject">
-                        <i class="fa-solid fa-flask" style="margin-right: 4px;"></i> วิทยาศาสตร์
-                    </span>
+                
+                <div>
+                    <span class="info-label" style="display: block; margin-bottom: 10px; font-size: 14px;">ทักษะส่วนตัว:</span>
+                    <div class="pill-container">
+                        <span class="skill-pill">🏅 เล่นกีฬาได้</span>
+                        <span class="skill-pill secondary">🍳 ทำอาหารเป็น</span>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="info-item">
-                <div class="icon-box">
-                    <i class="fa-solid fa-user-group"></i>
-                </div>
-                <div class="info-content">
-                    <span class="label">เพื่อนสนิท</span>
-                    <span class="value badge badge-friend">
-                        <i class="fa-solid fa-face-smile-wink" style="margin-right: 4px;"></i> แต๊ก่า
-                    </span>
-                </div>
-            </div>
-
-        </div>
+        </main>
     </div>
 
 </body>
 </html>
-
