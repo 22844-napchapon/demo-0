@@ -81,10 +81,11 @@
             backdrop-filter: blur(8px);
         }
 
-        .avatar-box svg {
-            width: 70px;
-            height: 70px;
-            fill: white;
+        /* เพิ่ม CSS สำหรับจัดการรูปภาพให้อยู่ในกรอบวงกลมสวยงาม */
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .header-info {
@@ -298,16 +299,11 @@
     </style>
 </head>
 <body>
-</body>
-</html>
-<img src="https://cdn.pixabay.com/photo/2017/05/30/13/48/dog-2355079_1280.jpg" alt="รูปสุนัข" width="250" height="200">
     <div class="a4-profile-card">
         
         <header class="profile-header">
             <div class="avatar-box">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,0 2,12C2,16.58 5.08,20.44 9.29,21.54C9.11,21.05 9.04,20.53 9.05,20C9.05,18.4 9.82,17 11,16.18V14.71C10.1,14.4 9.34,13.73 8.87,12.87C8.16,12.7 7.62,12.07 7.62,11.31C7.62,10.74 7.96,10.26 8.44,10.05C8.32,9.1 8.5,7.21 9.87,5.84C11.24,4.47 13.08,4.5 13.84,4.56C15.15,4.72 16,5.77 16.29,7.12C16.8,7.3 17.19,7.77 17.19,8.34C17.19,9.03 16.71,9.6 16.08,9.75C16.03,10.64 15.65,12.11 14.62,13.06C14.23,13.79 13.56,14.36 12.75,14.67V16.14C13.97,16.94 14.76,18.37 14.76,20C14.76,20.56 14.68,21.11 14.5,21.62C18.81,20.64 22,16.7 22,12A10,10 0 0,0 12,2Z"/>
-                </svg>
+                <img src="https://cdn.pixabay.com/photo/2017/05/30/13/48/dog-2355079_1280.jpg" alt="รูปโปรไฟล์">
             </div>
             <div class="header-info">
                 <div class="name-wrapper">
@@ -384,6 +380,5 @@
 
         </main>
     </div>
-
 </body>
 </html>
